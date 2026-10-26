@@ -2,6 +2,8 @@
 
 Clear-web search page backed by the astrx-suite web search engine — the **Clear-web search** module of [AstrX](https://github.com/Vxmdzhb/astrx).
 
+![Clear-web search results](docs/screenshot.png)
+
 - Module key: `websearch` (switch it on in the site's `resources/config/Modules.config.php`)
 - Pages: `web_search`
 - Requires: `astrx/cms`, `astrx/framework`, `astrx/library`
