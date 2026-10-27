@@ -2,16 +2,19 @@
 
 Clear-web search page backed by the astrx-suite web search engine — the **Clear-web search** module of [AstrX](https://github.com/Vxmdzhb/astrx).
 
-![Clear-web search results](docs/screenshot.png)
+![Clear-web results, on the Search page](docs/screenshot.png)
 
 - Module key: `websearch` (switch it on in the site's `resources/config/Modules.config.php`)
 - Pages: `web_search`
-- Requires: `astrx/cms`, `astrx/framework`, `astrx/library`
+- Requires: `astrx/cms`, `astrx/framework`, `astrx/library`, `astrx/module-search`
 
-The installer creates the page with its link in the navbar switched off,
-because the federated search ([module-fedsearch](https://github.com/Vxmdzhb/module-fedsearch))
-already offers this engine as a tab. Switch the link on in Admin → Navbar
-to list the page on its own.
+It adds a **Web** tab to the site's Search page
+([module-search](https://github.com/Vxmdzhb/module-search)), which shows
+the clear-web engine (`websearch`) from [astrx-suite](https://github.com/Vxmdzhb/astrx-suite):
+`/search?source=web&q=…`. The module's own page sits behind the tab's
+"More options" link, and the navbar highlights Search there too (the
+manifest's `nav_section`). Its own navbar link is off by default; Admin →
+Navbar switches it on.
 
 It ships its own templates, catalogs (en, it), default configuration and SQL in
 `resources/`; the site overrides any of them from its own `resources/`.
@@ -26,6 +29,7 @@ Composer where to find the package and the AstrX packages it depends on:
     "prefer-stable": true,
     "repositories": [
         { "type": "vcs", "url": "https://github.com/Vxmdzhb/module-websearch" },
+        { "type": "vcs", "url": "https://github.com/Vxmdzhb/module-search" },
         { "type": "vcs", "url": "https://github.com/Vxmdzhb/cms" },
         { "type": "vcs", "url": "https://github.com/Vxmdzhb/framework" },
         { "type": "vcs", "url": "https://github.com/Vxmdzhb/library" }

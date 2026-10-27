@@ -33,6 +33,12 @@ final class WebSearchModule implements Module
             'controllers'  => [
                 'web_search' => \AstrX\WebSearch\Controller\WebSearchController::class,
             ],
+            // The page sits under Search in the menu.
+            'nav_section'  => ['web_search' => 'site_search'],
+            // A tab on the site's Search page.
+            'extensions'   => [
+                \AstrX\Search\Tab\SearchTab::class => [\AstrX\WebSearch\WebSearchTab::class],
+            ],
             'teardown'     => 'websearch.down.sql',
             // Templates, translations and default config (see docs/MODULES.md).
             'resources'    => 'resources',

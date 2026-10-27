@@ -24,4 +24,5 @@ return [
     'websearch.order.relevance' => 'Rilevanza',
     'websearch.order.newest'    => 'Più recenti',
     'websearch.per_page'        => 'Per pagina',
+    'websearch.tab' => 'Web',
 ];
