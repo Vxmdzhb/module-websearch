@@ -1,6 +1,7 @@
 {
     "name": "astrx/module-websearch",
     "description": "Clear-web search page backed by the astrx-suite web search engine",
+    "license": "LicenseRef-DoWhatever",
     "type": "astrx-module",
     "keywords": [
         "astrx",
