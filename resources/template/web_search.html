@@ -15,7 +15,7 @@
     #web_search .search-verticals a.active{border-color:var(--ws-accent);color:var(--ws-accent);font-weight:bold;}
     .search-form{border:1px solid var(--ws-border);background:transparent;padding:8px;margin:8px 0;}
     .search-form p{margin:4px 0;}
-    .search-form input[type=text]{background:transparent;color:inherit;border:1px solid var(--ws-border);padding:2px 4px;min-width:20em;}
+    .search-form input[type=text]{background:transparent;color:inherit;border:1px solid var(--ws-border);padding:2px 4px;width:20em;max-width:100%;box-sizing:border-box;}
     .search-form input[type=number]{background:transparent;color:inherit;border:1px solid var(--ws-border);padding:2px 4px;}
     .search-form select{background:transparent;color:inherit;border:1px solid var(--ws-border);padding:2px 4px;}
     .search-form button{background:transparent;color:inherit;border:1px solid var(--ws-border);padding:2px 12px;cursor:pointer;}
@@ -41,6 +41,7 @@
     </nav>
 
     <form class="search-form" method="get" action="{{form_action}}">
+        {{#route_fields}}<input type="hidden" name="{{name}}" value="{{value}}">{{/route_fields}}
         {{&sid_input}}
         <input type="hidden" name="type" value="{{cur_type}}">
         <p><label>{{lbl_query}} <input type="text" name="q" value="{{query}}" autocomplete="off"></label>

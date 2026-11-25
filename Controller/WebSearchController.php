@@ -68,7 +68,7 @@ final class WebSearchController extends AbstractController
         }
 
         $q    = self::queryStr($this->request, 'q');
-        $page = max(1, self::queryInt($this->request, 'page', 1));
+        $page = max(1, self::queryInt($this->request, 'pn', self::queryInt($this->request, 'page', 1)));
 
         // Whitelisted controls — anything else falls back to the default.
         $type = self::queryStr($this->request, 'type');
@@ -122,11 +122,11 @@ final class WebSearchController extends AbstractController
                 $last = max(1, intdiv($total + $pageSize - 1, $pageSize));
                 if ($page > 1) {
                     $hasPrev = true;
-                    $prevUrl = $this->urlGen->toPage($slug, ['q' => $q, 'page' => $page - 1] + $state);
+                    $prevUrl = $this->urlGen->toPage($slug, ['q' => $q, 'pn' => $page - 1] + $state);
                 }
                 if ($page < $last) {
                     $hasNext = true;
-                    $nextUrl = $this->urlGen->toPage($slug, ['q' => $q, 'page' => $page + 1] + $state);
+                    $nextUrl = $this->urlGen->toPage($slug, ['q' => $q, 'pn' => $page + 1] + $state);
                 }
             } else {
                 $unavailable = true;
